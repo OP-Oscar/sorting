@@ -24,7 +24,7 @@
 // function to only take s, m,l
 // end result should be sorted sml  !slm
 
-const sorter = (x) => {
+const tshirtSorter = (x) => {
     let small = ""
     let medium = ""
     let large = ""
@@ -51,3 +51,37 @@ console.log(tshirtSorter('lms'))  // => sml
 
 //test case 2
 console.log(tshirtSorter('smllms')) // => ssmmll
+
+
+
+// secondary answer
+
+function tshirtSorterTwo(x){
+    let small = ""
+    let medium = ""
+    let large = ""
+    let check = x.toLowerCase().replace(/[^sml]/g, "")
+    if( check.length === x.length){
+        for(val of check){
+        if(val === "s"){
+            small = small + val
+        }
+        else if(val === "m"){
+            medium = medium + val
+        }
+        else if(val === "l"){
+            large = large + val
+        }
+    }
+    }else {
+        return "Your string should only contain letters s - m - l"}
+   
+    return (small + medium + large)
+}
+
+//test case 1
+console.log(tshirtSorterTwo('lms'))  // => sml
+
+//test case 2
+console.log(tshirtSorterTwo('smllms')) // => ssmmll
+
